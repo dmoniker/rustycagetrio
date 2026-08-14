@@ -1,6 +1,6 @@
 export const site = {
   name: "Rusty Cage Trio",
-  email: "rustycagetrio@gmail.com",
+  email: "booking@rustycageseattle.com",
   tagline:
     "Acoustic country trio for weddings, parties, and corporate in the Seattle area",
   location: "Shoreline / Seattle",
