@@ -6,7 +6,7 @@ export const site = {
   location: "Shoreline / Seattle",
   formed: "2024",
   instagram: "https://www.instagram.com/rustycagetrio",
-  facebook: "https://www.facebook.com/rustytrio",
+  facebook: "https://www.facebook.com/rustycageseattle",
   youtube: "https://www.youtube.com/@darcymenard",
   gigsalad: "https://www.gigsalad.com/rusty_cage_seattle",
   joleneVideoId: "cuyIdqal2Ms",
