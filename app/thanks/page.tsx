@@ -17,8 +17,8 @@ export default function ThanksPage() {
       </header>
       <div className="thanks-card">
         <p>
-          Your quote request is in. We will write back from {site.email} with
-          availability and a clear number.
+          Your quote request is in. We will write back with availability and a
+          clear number.
         </p>
         <p>
           If you do not see a reply in a day or two, send the same details
