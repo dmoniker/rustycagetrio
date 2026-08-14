@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { eventTypes, site } from "@/lib/content";
 
 export function QuoteForm() {
-  const [nextUrl, setNextUrl] = useState("https://www.rustycagetrio.com/thanks");
+  const [nextUrl, setNextUrl] = useState("https://www.rustycageseattle.com/thanks");
 
   useEffect(() => {
     setNextUrl(`${window.location.origin}/thanks`);
@@ -82,7 +82,7 @@ export function QuoteForm() {
       </button>
 
       <p className="fine">
-        Or write {site.email} directly. We reply from the same address.
+        Or write {site.email} directly.
       </p>
     </form>
   );
