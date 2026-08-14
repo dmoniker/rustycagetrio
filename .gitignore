@@ -1,0 +1,7 @@
+/.next/
+/out/
+/build
+.DS_Store
+.vercel
+*.tsbuildinfo
+/node_modules
