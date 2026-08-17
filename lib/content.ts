@@ -39,7 +39,6 @@ export const packages = [
 export const proof = [
   { label: "Gig Salad", value: "5.0" },
   { label: "Private", value: "Issaquah anniversary party" },
-  { label: "Corporate", value: "Company boat holiday party" },
   { label: "Community", value: "Porchfest Edmonds" },
   { label: "Park", value: "Shorelake Arts" },
   { label: "Museum", value: "MOHAI" },
