@@ -16,7 +16,7 @@ export function Header() {
     <header className="site-header">
       <div className="wrap header-inner">
         <Link className="wordmark" href="/">
-          Rusty Cage <span>Trio</span>
+          Rusty Cage
         </Link>
         <nav aria-label="Primary">
           {links.map((link) => (

@@ -28,7 +28,7 @@ export default function HomePage() {
         <figure className="frame">
           <Image
             src="/photos/hero.jpeg"
-            alt="Rusty Cage Trio, Shoreline"
+            alt="Rusty Cage, Shoreline"
             width={1200}
             height={1500}
             priority
@@ -102,7 +102,7 @@ export default function HomePage() {
         <div className="video-wrap">
           <iframe
             src={`https://www.youtube.com/embed/${site.joleneVideoId}`}
-            title="Rusty Cage Trio — Jolene"
+            title="Rusty Cage — Jolene"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowFullScreen
           />
@@ -113,18 +113,18 @@ export default function HomePage() {
         <figure className="frame" style={{ transform: "rotate(0.5deg)" }}>
           <Image
             src="/photos/forest.jpeg"
-            alt="Rusty Cage Trio in the woods near Shoreline"
+            alt="Rusty Cage in the woods near Shoreline"
             width={1400}
             height={1800}
           />
         </figure>
         <div>
           <p className="kicker">The fit</p>
-          <h2>Built for wineries, backyards, boats, and halls</h2>
+          <h2>Built for wineries, backyards, and halls</h2>
           <p>
             We keep the volume low and the footprint small — about 5′ × 6′.
             Own PA. Travel from Shoreline about 200 miles. Formed 2024, already
-            in living rooms, on a company boat, and at MOHAI.
+            in living rooms and at MOHAI.
           </p>
           <p>
             <Link href="/about">More about the trio</Link>
