@@ -18,18 +18,18 @@ const sans = Source_Sans_3({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.rustycagetrio.com"),
+  metadataBase: new URL("https://www.rustycageseattle.com"),
   title: {
-    default: "Rusty Cage Trio — Seattle acoustic country for private events",
-    template: "%s — Rusty Cage Trio",
+    default: "Rusty Cage — Seattle acoustic country for private events",
+    template: "%s — Rusty Cage",
   },
   description:
     "Shoreline acoustic country trio for weddings, private parties, and corporate events in the Seattle area. Low volume, own PA, 5-by-6 setup. Request a quote.",
   alternates: { canonical: "/" },
   openGraph: {
-    title: "Rusty Cage Trio",
+    title: "Rusty Cage",
     description: site.tagline,
-    url: "https://www.rustycagetrio.com",
+    url: "https://www.rustycageseattle.com",
     siteName: site.name,
     locale: "en_US",
     type: "website",
