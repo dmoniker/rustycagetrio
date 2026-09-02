@@ -73,6 +73,9 @@ export const countrySongs = [
   { title: "Dead Flowers", artist: "The Rolling Stones" },
   { title: "Willin’", artist: "Little Feat" },
   { title: "Speed of the Sound of Loneliness", artist: "John Prine" },
+  { title: "Family Tradition", artist: "Hank Williams Jr." },
+  { title: "(Hey Won’t You Play) Another Somebody Done Somebody Wrong Song", artist: "B.J. Thomas" },
+  { title: "Me and Bobby McGee", artist: "Gordon Lightfoot" },
 ] as const;
 
 export const crossoverSongs = [
@@ -86,6 +89,9 @@ export const crossoverSongs = [
   { title: "Mary Jane’s Last Dance", artist: "Tom Petty" },
   { title: "Song Sung Blue", artist: "Neil Diamond" },
   { title: "All Apologies", artist: "Nirvana" },
+  { title: "Wake Me Up", artist: "Avicii" },
+  { title: "The Joker", artist: "Steve Miller Band" },
+  { title: "Sweet Child O’ Mine", artist: "Guns N’ Roses" },
 ] as const;
 
 export const eventTypes = [
