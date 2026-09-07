@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import { packages, proof, site } from "@/lib/content";
+import { ShowsList } from "@/components/ShowsList";
+import { packages, site } from "@/lib/content";
 
 export default function HomePage() {
   return (
@@ -40,25 +41,19 @@ export default function HomePage() {
       <section className="wrap band">
         <div className="section-head">
           <div>
-            <p className="kicker">Proof</p>
-            <h2>Already booked for the rooms that matter</h2>
+            <p className="kicker">On the calendar</p>
+            <h2>Upcoming shows</h2>
           </div>
+          <Link href="/shows">See all shows</Link>
         </div>
-        <div className="proof-grid">
-          {proof.map((item) => (
-            <article className="proof-card" key={item.value}>
-              <span className="kicker">{item.label}</span>
-              <strong>{item.value}</strong>
-            </article>
-          ))}
-        </div>
+        <ShowsList />
       </section>
 
       <section className="wrap band">
         <div className="section-head">
           <div>
-            <p className="kicker">Packages</p>
-            <h2>Clear pricing. No 15-page rider.</h2>
+            <p className="kicker">Private bookings</p>
+            <h2>Packages</h2>
           </div>
         </div>
         <div className="packages">

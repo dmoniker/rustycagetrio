@@ -36,13 +36,80 @@ export const packages = [
   },
 ] as const;
 
-export const proof = [
-  { label: "Gig Salad", value: "5.0" },
-  { label: "Private", value: "Issaquah anniversary party" },
-  { label: "Community", value: "Porchfest Edmonds" },
-  { label: "Park", value: "Shorelake Arts" },
-  { label: "Museum", value: "MOHAI" },
+export type Show = {
+  /** Calendar date as YYYY-MM-DD. Past dates drop off the public list. */
+  date: string;
+  time: string;
+  venue: string;
+  city: string;
+  /** Public Facebook event URL, when one exists. */
+  facebook?: string;
+};
+
+/**
+ * Public, confirmed (or clearly bookable) gigs only.
+ * Add a row here when a Facebook event goes up. Leave pending rooms off
+ * the list until the owner locks them.
+ */
+export const shows: Show[] = [
+  {
+    date: "2026-10-10",
+    time: "6–8pm",
+    venue: "Trailhead Taps and Bottles",
+    city: "Issaquah",
+    facebook: "https://www.facebook.com/events/1568099088430168/",
+  },
+  {
+    date: "2026-11-27",
+    time: "7–10pm",
+    venue: "McMenamins Anderson School",
+    city: "Bothell",
+  },
+  {
+    date: "2026-12-11",
+    time: "7–10pm",
+    venue: "McMenamins Anderson School",
+    city: "Bothell",
+  },
+];
+
+const WEEKDAYS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"] as const;
+const MONTHS = [
+  "Jan",
+  "Feb",
+  "Mar",
+  "Apr",
+  "May",
+  "Jun",
+  "Jul",
+  "Aug",
+  "Sep",
+  "Oct",
+  "Nov",
+  "Dec",
 ] as const;
+
+function todayInPacific(): string {
+  return new Intl.DateTimeFormat("en-CA", {
+    timeZone: "America/Los_Angeles",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).format(new Date());
+}
+
+export function upcomingShows(): Show[] {
+  const today = todayInPacific();
+  return shows
+    .filter((show) => show.date >= today)
+    .sort((a, b) => a.date.localeCompare(b.date));
+}
+
+export function formatShowDate(isoDate: string): string {
+  const [year, month, day] = isoDate.split("-").map(Number);
+  const date = new Date(year, month - 1, day);
+  return `${WEEKDAYS[date.getDay()]} ${MONTHS[month - 1]} ${day}, ${year}`;
+}
 
 export const countrySongs = [
   { title: "Friends in Low Places", artist: "Garth Brooks" },

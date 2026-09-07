@@ -20,9 +20,14 @@ npm run build
 npm start
 ```
 
+## Upcoming shows
+
+Edit the `shows` array in `lib/content.ts` when a public Facebook event goes up. Only add confirmed (or clearly bookable) gigs. Past dates fall off the homepage and `/shows` automatically.
+
 ## Routes
 
 - `/` home
+- `/shows` upcoming public shows
 - `/songs` setlist
 - `/about` the trio
 - `/contact` quote form
