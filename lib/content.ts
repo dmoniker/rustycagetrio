@@ -2,7 +2,7 @@ export const site = {
   name: "Rusty Cage",
   email: "booking@rustycageseattle.com",
   tagline:
-    "Acoustic country trio for weddings, parties, and corporate in the Seattle area",
+    "Acoustic country trio for weddings, parties, and bar gigs in the Seattle area",
   location: "Shoreline / Seattle",
   formed: "2024",
   instagram: "https://www.instagram.com/rustycagetrio",
