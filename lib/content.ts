@@ -53,6 +53,13 @@ export type Show = {
  */
 export const shows: Show[] = [
   {
+    date: "2026-10-09",
+    time: "7–10pm",
+    venue: "Thorndike Room, McMenamins Anderson School",
+    city: "Bothell",
+    facebook: "https://www.facebook.com/events/29407027835564194/",
+  },
+  {
     date: "2026-10-10",
     time: "6–8pm",
     venue: "Trailhead Taps and Bottles",
