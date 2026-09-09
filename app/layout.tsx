@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     siteName: site.name,
     locale: "en_US",
     type: "website",
-    images: [{ url: "/photos/hero.jpeg" }],
+    images: [{ url: "/photos/rusty-cage-outdoor.jpg" }],
   },
 };
 
