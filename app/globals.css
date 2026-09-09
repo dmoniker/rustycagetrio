@@ -144,9 +144,9 @@ nav a[aria-current="page"] {
 .hero {
   padding: 3.4rem 0 2.2rem;
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
+  grid-template-columns: 1fr 1fr;
   gap: 2.6rem;
-  align-items: end;
+  align-items: center;
 }
 
 .hero h1 {
@@ -219,6 +219,54 @@ nav a[aria-current="page"] {
   font-size: 0.78rem;
   color: var(--muted);
   padding: 0.45rem 0.2rem 0.1rem;
+}
+
+.hero-photos-stage {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: #2a2218;
+}
+
+.hero-photos-stage img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.7s ease;
+}
+
+.hero-photos-stage img.is-current {
+  opacity: 1;
+}
+
+.hero-photos-dots {
+  display: flex;
+  gap: 0.45rem;
+  padding: 0.55rem 0.15rem 0.15rem;
+}
+
+.hero-photos-dots button {
+  width: 0.55rem;
+  height: 0.55rem;
+  padding: 0;
+  border: 1px solid var(--ink);
+  border-radius: 999px;
+  background: transparent;
+  cursor: pointer;
+}
+
+.hero-photos-dots button[aria-current="true"] {
+  background: var(--rust);
+  border-color: var(--rust);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-photos-stage img {
+    transition: none;
+  }
 }
 
 .band {

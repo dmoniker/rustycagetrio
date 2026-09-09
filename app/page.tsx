@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { HeroPhotos } from "@/components/HeroPhotos";
 import { ShowsList } from "@/components/ShowsList";
 import { packages, site } from "@/lib/content";
 
@@ -26,16 +27,7 @@ export default function HomePage() {
             </Link>
           </div>
         </div>
-        <figure className="frame">
-          <Image
-            src="/photos/hero.jpeg"
-            alt="Rusty Cage, Shoreline"
-            width={1200}
-            height={1500}
-            priority
-          />
-          <figcaption>The trio. Shoreline, Washington.</figcaption>
-        </figure>
+        <HeroPhotos />
       </section>
 
       <section className="wrap band">

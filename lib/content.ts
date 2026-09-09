@@ -12,6 +12,24 @@ export const site = {
   joleneVideoId: "cuyIdqal2Ms",
 };
 
+export const heroPhotos = [
+  {
+    src: "/photos/rusty-cage-outdoor.jpg",
+    alt: "Rusty Cage playing an outdoor set in the woods near Shoreline",
+    caption: "A backyard set. Shoreline woods.",
+  },
+  {
+    src: "/photos/mohai.JPG",
+    alt: "Rusty Cage performing at MOHAI in Seattle",
+    caption: "MOHAI, Seattle.",
+  },
+  {
+    src: "/photos/poster.jpg",
+    alt: "Illustrated poster of Rusty Cage",
+    caption: "The trio.",
+  },
+] as const;
+
 export const packages = [
   {
     name: "Cocktail Hour",
