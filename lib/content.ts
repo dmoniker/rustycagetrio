@@ -9,6 +9,7 @@ export const site = {
   facebook: "https://www.facebook.com/rustycageseattle",
   youtube: "https://www.youtube.com/@darcymenard",
   gigsalad: "https://www.gigsalad.com/rusty_cage_seattle",
+  venmo: "rustycageseattle",
   joleneVideoId: "cuyIdqal2Ms",
 };
 
@@ -179,6 +180,14 @@ export const crossoverSongs = [
   { title: "Song Sung Blue", artist: "Neil Diamond" },
   { title: "All Apologies", artist: "Nirvana" },
 ] as const;
+
+export type Song = {
+  title: string;
+  artist: string;
+};
+
+/** Same book as `/songs` — country first, then the short crossover set. */
+export const setlistSongs: Song[] = [...countrySongs, ...crossoverSongs];
 
 export const eventTypes = [
   { value: "wedding", label: "Wedding" },
