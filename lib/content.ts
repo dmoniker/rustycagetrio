@@ -219,7 +219,11 @@ export type Song = {
   artist: string;
 };
 
-/** Same book as `/songs` — country, crossover, then originals. */
+/**
+ * Same book as `/songs` and `/live`.
+ * Production was 38 (28 country + 10 crossover).
+ * This list is 66 (32 country + 30 crossover + 4 originals).
+ */
 export const setlistSongs: Song[] = [
   ...countrySongs,
   ...crossoverSongs,
