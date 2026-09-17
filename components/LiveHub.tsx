@@ -53,28 +53,21 @@ export function LiveHub({ facebook, songs }: LiveHubProps) {
 
   return (
     <div className="live">
-      <header className="live-brand">
-        <Link className="live-wordmark" href="/">
-          Rusty Cage
-        </Link>
-        <p className="live-kicker">Tonight at the gig</p>
-      </header>
+      <div className="live-top">
+        <header className="live-brand">
+          <Link className="live-wordmark" href="/">
+            Rusty Cage
+          </Link>
+        </header>
 
-      <a
-        className="live-facebook"
-        href={facebook}
-        rel="noreferrer"
-        target="_blank"
-      >
-        <span className="live-facebook-kicker">Gig updates</span>
-        <strong>Follow on Facebook</strong>
-        <span>Dates, rooms, and last-minute changes</span>
-      </a>
-
-      <section className="live-card" aria-labelledby="request-heading">
-        <h1 className="live-kicker" id="request-heading">
-          Request a song
-        </h1>
+        <a
+          className="live-facebook"
+          href={facebook}
+          rel="noreferrer"
+          target="_blank"
+        >
+          Gig updates · Follow on Facebook
+        </a>
 
         <label className="live-field">
           <span className="hp">Search</span>
@@ -88,48 +81,37 @@ export function LiveHub({ facebook, songs }: LiveHubProps) {
             spellCheck={false}
           />
         </label>
+      </div>
 
-        <p className="live-count" aria-live="polite">
-          {visibleSongs.length === 1
-            ? "1 song"
-            : `${visibleSongs.length} songs`}
-        </p>
+      <div className="live-setlist" aria-label="Setlist">
+        {visibleSongs.length === 0 ? (
+          <p className="live-empty">No matches</p>
+        ) : (
+          <ul>
+            {visibleSongs.map((song) => {
+              const active = selected ? sameSong(song, selected) : false;
+              return (
+                <li key={`${song.title}-${song.artist}`}>
+                  <button
+                    type="button"
+                    className={active ? "is-selected" : undefined}
+                    aria-pressed={active}
+                    onClick={() => toggleSong(song)}
+                  >
+                    <span>{song.title}</span>
+                    <em>{song.artist}</em>
+                  </button>
+                </li>
+              );
+            })}
+          </ul>
+        )}
+      </div>
 
-        <div className="live-setlist" aria-label="Setlist">
-          {visibleSongs.length === 0 ? (
-            <p className="live-empty">No matches</p>
-          ) : (
-            <ol>
-              {visibleSongs.map((song, index) => {
-                const active = selected ? sameSong(song, selected) : false;
-                const n = index + 1;
-                return (
-                  <li key={`${song.title}-${song.artist}`} value={n}>
-                    <button
-                      type="button"
-                      className={active ? "is-selected" : undefined}
-                      aria-pressed={active}
-                      onClick={() => toggleSong(song)}
-                    >
-                      <span className="live-num" aria-hidden="true">
-                        {n}
-                      </span>
-                      <span>
-                        <span>{song.title}</span>
-                        <em>{song.artist}</em>
-                      </span>
-                    </button>
-                  </li>
-                );
-              })}
-            </ol>
-          )}
-        </div>
-
+      <div className="live-dock">
         <p className="live-note" aria-live="polite">
           {note}
         </p>
-
         <div className="live-amounts">
           {REQUEST_AMOUNTS.map((amount) => {
             const label = `${verb} $${amount}`;
@@ -148,7 +130,7 @@ export function LiveHub({ facebook, songs }: LiveHubProps) {
             );
           })}
         </div>
-      </section>
+      </div>
     </div>
   );
 }
