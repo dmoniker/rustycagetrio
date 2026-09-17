@@ -1,11 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import {
-  countrySongs,
-  crossoverSongs,
-  originalSongs,
-  setlistSongs,
-} from "@/lib/content";
+import { countrySongs, crossoverSongs, originalSongs } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Song list",
@@ -40,11 +35,10 @@ export default function SongsPage() {
     <div className="wrap">
       <header className="page-hero">
         <p className="kicker">The book</p>
-        <h1>Songs people actually sing</h1>
+        <h1>Songs people sing</h1>
         <p className="lede">
           Country first. A short crossover set after. A handful of originals.
-          {setlistSongs.length} songs in the book. Requests welcome — tell us
-          what the room needs.
+          Requests welcome — tell us what the room needs.
         </p>
       </header>
       <div className="song-cols">
