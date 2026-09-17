@@ -165,6 +165,13 @@ export const countrySongs = [
   { title: "Dead Flowers", artist: "The Rolling Stones" },
   { title: "Willin’", artist: "Little Feat" },
   { title: "Speed of the Sound of Loneliness", artist: "John Prine" },
+  { title: "Jambalaya", artist: "Hank Williams" },
+  { title: "Family Tradition", artist: "Hank Williams Jr." },
+  {
+    title: "(Hey Won’t You Play) Another Somebody Done Somebody Wrong Song",
+    artist: "B.J. Thomas",
+  },
+  { title: "Danny Boy", artist: "Conway Twitty" },
 ] as const;
 
 export const crossoverSongs = [
@@ -178,7 +185,50 @@ export const crossoverSongs = [
   { title: "Mary Jane’s Last Dance", artist: "Tom Petty" },
   { title: "Song Sung Blue", artist: "Neil Diamond" },
   { title: "All Apologies", artist: "Nirvana" },
+  { title: "Wake Me Up", artist: "Avicii" },
+  { title: "Sweet Child O’ Mine", artist: "Guns N’ Roses" },
+  { title: "The Joker", artist: "Steve Miller Band" },
+  { title: "Me and Bobby McGee", artist: "Gordon Lightfoot" },
+  { title: "A Horse With No Name", artist: "America" },
+  { title: "Piano Man", artist: "Billy Joel" },
+  { title: "Old Man", artist: "Neil Young" },
+  { title: "Rocky Mountain Way", artist: "Joe Walsh" },
+  { title: "Ain’t No Sunshine", artist: "Bill Withers" },
+  { title: "Maggie’s Farm", artist: "Bob Dylan" },
+  { title: "Rebel Yell", artist: "Billy Idol" },
+  { title: "Have You Ever Seen the Rain?", artist: "Creedence Clearwater Revival" },
+  { title: "Southern Cross", artist: "Crosby, Stills & Nash" },
+  { title: "Take It Easy", artist: "Eagles" },
+  { title: "Truckin’", artist: "Grateful Dead" },
+  { title: "Drunken Sailor", artist: "The Irish Rovers" },
+  { title: "Hard Times", artist: "Ray Charles" },
+  { title: "Listen to the Music", artist: "The Doobie Brothers" },
+  { title: "Elderly Woman Behind the Counter", artist: "Pearl Jam" },
+  { title: "The Long Cut", artist: "Uncle Tupelo" },
 ] as const;
+
+export const originalSongs = [
+  { title: "My Rent", artist: "Rusty Cage" },
+  { title: "Tangerine Sky", artist: "Rusty Cage" },
+  { title: "Technology", artist: "Rusty Cage" },
+  { title: "Caterpillar Dream", artist: "Rusty Cage" },
+] as const;
+
+export type Song = {
+  title: string;
+  artist: string;
+};
+
+/**
+ * Same book as `/songs` and `/live`.
+ * Production was 38 (28 country + 10 crossover).
+ * This list is 66 (32 country + 30 crossover + 4 originals).
+ */
+export const setlistSongs: Song[] = [
+  ...countrySongs,
+  ...crossoverSongs,
+  ...originalSongs,
+];
 
 export const eventTypes = [
   { value: "wedding", label: "Wedding" },
