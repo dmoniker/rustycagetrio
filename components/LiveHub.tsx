@@ -12,9 +12,7 @@ import {
 
 type LiveHubProps = {
   facebook: string;
-  venmo: string;
-  countrySongs: readonly Song[];
-  crossoverSongs: readonly Song[];
+  songs: readonly Song[];
 };
 
 function matchesQuery(song: Song, query: string): boolean {
@@ -25,6 +23,13 @@ function matchesQuery(song: Song, query: string): boolean {
 
 function sameSong(a: Song, b: Song): boolean {
   return a.title === b.title && a.artist === b.artist;
+}
+
+function byTitle(a: Song, b: Song): number {
+  return (
+    a.title.localeCompare(b.title, "en", { sensitivity: "base" }) ||
+    a.artist.localeCompare(b.artist, "en", { sensitivity: "base" })
+  );
 }
 
 function AmountRow({
@@ -64,12 +69,7 @@ function AmountRow({
   );
 }
 
-export function LiveHub({
-  facebook,
-  venmo,
-  countrySongs,
-  crossoverSongs,
-}: LiveHubProps) {
+export function LiveHub({ facebook, songs }: LiveHubProps) {
   const [query, setQuery] = useState("");
   const [selected, setSelected] = useState<Song | null>(null);
 
@@ -77,15 +77,10 @@ export function LiveHub({
   const requestNote = selected ? songRequestNote(selected) : "";
   const canRequest = Boolean(selected);
 
-  const filteredCountry = useMemo(
-    () => countrySongs.filter((song) => matchesQuery(song, needle)),
-    [countrySongs, needle],
+  const visibleSongs = useMemo(
+    () => songs.filter((song) => matchesQuery(song, needle)).sort(byTitle),
+    [songs, needle],
   );
-  const filteredCrossover = useMemo(
-    () => crossoverSongs.filter((song) => matchesQuery(song, needle)),
-    [crossoverSongs, needle],
-  );
-  const matchCount = filteredCountry.length + filteredCrossover.length;
 
   return (
     <div className="live">
@@ -108,23 +103,17 @@ export function LiveHub({
       </a>
 
       <section className="live-card" aria-labelledby="request-heading">
-        <p className="live-kicker" id="request-heading">
+        <h1 className="live-kicker" id="request-heading">
           Request a song
-        </p>
-        <h1>Pick a song from the book</h1>
-        <p className="live-lede">
-          Search or tap a setlist song, then choose $5, $10, or $20. Venmo
-          opens with the amount and note ready for @{venmo}. The notification
-          is our cue — no account needed here.
-        </p>
+        </h1>
 
         <label className="live-field">
-          Search the setlist
+          <span className="hp">Search</span>
           <input
             type="search"
             value={query}
             onChange={(event) => setQuery(event.target.value)}
-            placeholder="Search songs or artists"
+            placeholder="Search"
             autoComplete="off"
             autoCorrect="off"
             spellCheck={false}
@@ -132,92 +121,49 @@ export function LiveHub({
         </label>
 
         <div className="live-setlist" aria-label="Setlist">
-          {matchCount === 0 ? (
-            <p className="live-empty">
-              No setlist match. Try another title or artist.
-            </p>
+          {visibleSongs.length === 0 ? (
+            <p className="live-empty">No matches</p>
           ) : (
-            <>
-              <SongGroup
-                heading="Country"
-                songs={filteredCountry}
-                selected={selected}
-                onPick={setSelected}
-              />
-              <SongGroup
-                heading="Crossover"
-                songs={filteredCrossover}
-                selected={selected}
-                onPick={setSelected}
-              />
-            </>
+            <ul>
+              {visibleSongs.map((song) => {
+                const active = selected ? sameSong(song, selected) : false;
+                return (
+                  <li key={`${song.title}-${song.artist}`}>
+                    <button
+                      type="button"
+                      className={active ? "is-selected" : undefined}
+                      aria-pressed={active}
+                      onClick={() => setSelected(song)}
+                    >
+                      <span>{song.title}</span>
+                      <em>{song.artist}</em>
+                    </button>
+                  </li>
+                );
+              })}
+            </ul>
           )}
         </div>
 
-        <p className="live-note" aria-live="polite">
-          {canRequest
-            ? requestNote
-            : "Pick a setlist song, then tap an amount."}
-        </p>
+        {canRequest ? (
+          <p className="live-note" aria-live="polite">
+            {requestNote}
+          </p>
+        ) : null}
 
         <AmountRow
           note={requestNote}
           disabled={!canRequest}
           verb="Request"
         />
-
-        <p className="live-fine">
-          Pays @{venmo} on Venmo. The link opens the app when it is installed,
-          or Venmo on the web if it is not. Search @{venmo} and paste the note
-          above if you need a backup.
-        </p>
       </section>
 
       <section className="live-card live-card-tip" aria-labelledby="tip-heading">
         <p className="live-kicker" id="tip-heading">
           Just a tip
         </p>
-        <p className="live-lede">No song — a plain thank-you to the trio.</p>
         <AmountRow note={tipNote()} verb="Tip" />
       </section>
-    </div>
-  );
-}
-
-function SongGroup({
-  heading,
-  songs,
-  selected,
-  onPick,
-}: {
-  heading: string;
-  songs: readonly Song[];
-  selected: Song | null;
-  onPick: (song: Song) => void;
-}) {
-  if (songs.length === 0) return null;
-
-  return (
-    <div>
-      <p className="live-group">{heading}</p>
-      <ul>
-        {songs.map((song) => {
-          const active = selected ? sameSong(song, selected) : false;
-          return (
-            <li key={`${song.title}-${song.artist}`}>
-              <button
-                type="button"
-                className={active ? "is-selected" : undefined}
-                aria-pressed={active}
-                onClick={() => onPick(song)}
-              >
-                <span>{song.title}</span>
-                <em>{song.artist}</em>
-              </button>
-            </li>
-          );
-        })}
-      </ul>
     </div>
   );
 }

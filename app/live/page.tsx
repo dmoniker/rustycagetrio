@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { LiveHub } from "@/components/LiveHub";
-import { countrySongs, crossoverSongs, site } from "@/lib/content";
+import { setlistSongs, site } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Live",
@@ -23,11 +23,6 @@ export const viewport: Viewport = {
 
 export default function LivePage() {
   return (
-    <LiveHub
-      facebook={site.facebook}
-      venmo={site.venmo}
-      countrySongs={countrySongs}
-      crossoverSongs={crossoverSongs}
-    />
+    <LiveHub facebook={site.facebook} songs={setlistSongs} />
   );
 }

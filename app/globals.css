@@ -622,22 +622,15 @@ body.live-hub::before {
   background: rgba(255, 248, 236, 0.04);
 }
 
-.live-card h1 {
-  margin: 0.35rem 0 0.55rem;
-  font-size: 1.55rem;
-}
-
-.live-lede {
-  margin: 0 0 1rem;
-  color: #d8cbb6;
-  font-size: 1.02rem;
+.live-card h1.live-kicker {
+  margin-bottom: 0.85rem;
 }
 
 .live-card-tip {
   opacity: 0.92;
 }
 
-.live-card-tip .live-lede {
+.live-card-tip .live-kicker {
   margin-bottom: 0.85rem;
 }
 
@@ -679,15 +672,6 @@ body.live-hub::before {
   list-style: none;
   margin: 0;
   padding: 0;
-}
-
-.live-group {
-  margin: 0.7rem 0 0.25rem;
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: #c4b190;
 }
 
 .live-setlist button {
