@@ -34,7 +34,7 @@ Edit the `shows` array in `lib/content.ts` when a public Facebook event goes up.
 - `/thanks` form success
 - `/live` gig QR page — Facebook follow + Venmo song requests / tips
 
-Print the gig QR to `https://rustycageseattle.com/live`. Requests open Venmo `@rustycageseattle` with $5 / $10 / $20 and a prefilled note. The Venmo notification is the stage cue; there is no payment dashboard.
+Print the gig QR to `https://rustycageseattle.com/live`. Fans pick a song from the `/songs` setlist, then open Venmo `@rustycageseattle` at $5 / $10 / $20 with a prefilled note. The Venmo notification is the stage cue; there is no payment dashboard.
 
 ## Vercel
 

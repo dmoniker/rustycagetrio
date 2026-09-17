@@ -722,10 +722,6 @@ body.live-hub::before {
   color: #b8a892;
 }
 
-.live-custom {
-  padding-top: 0.35rem;
-}
-
 .live-note {
   min-height: 2.6rem;
   margin: 0.2rem 0 0.75rem;

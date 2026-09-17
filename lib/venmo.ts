@@ -9,11 +9,8 @@ export function formatVenmoAmount(amount: number): string {
   return amount.toFixed(2);
 }
 
-export function songRequestNote(title: string, artist = ""): string {
-  const song = title.trim();
-  const who = artist.trim();
-  if (!song) return "";
-  return who ? `Song Request: ${song} — ${who}` : `Song Request: ${song}`;
+export function songRequestNote(song: { title: string; artist: string }): string {
+  return `Song Request: ${song.title} — ${song.artist}`;
 }
 
 export function tipNote(): string {

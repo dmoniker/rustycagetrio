@@ -71,13 +71,11 @@ export function LiveHub({
   crossoverSongs,
 }: LiveHubProps) {
   const [query, setQuery] = useState("");
-  const [title, setTitle] = useState("");
-  const [artist, setArtist] = useState("");
+  const [selected, setSelected] = useState<Song | null>(null);
 
   const needle = query.trim().toLowerCase();
-  const selected: Song = { title: title.trim(), artist: artist.trim() };
-  const requestNote = songRequestNote(selected.title, selected.artist);
-  const canRequest = Boolean(requestNote);
+  const requestNote = selected ? songRequestNote(selected) : "";
+  const canRequest = Boolean(selected);
 
   const filteredCountry = useMemo(
     () => countrySongs.filter((song) => matchesQuery(song, needle)),
@@ -88,11 +86,6 @@ export function LiveHub({
     [crossoverSongs, needle],
   );
   const matchCount = filteredCountry.length + filteredCrossover.length;
-
-  function pickSong(song: Song) {
-    setTitle(song.title);
-    setArtist(song.artist);
-  }
 
   return (
     <div className="live">
@@ -118,10 +111,11 @@ export function LiveHub({
         <p className="live-kicker" id="request-heading">
           Request a song
         </p>
-        <h1>Pick from the book, or type a custom one</h1>
+        <h1>Pick a song from the book</h1>
         <p className="live-lede">
-          Choose $5, $10, or $20. Venmo opens with the amount and note ready
-          for @{venmo}. The notification is our cue — no account needed here.
+          Search or tap a setlist song, then choose $5, $10, or $20. Venmo
+          opens with the amount and note ready for @{venmo}. The notification
+          is our cue — no account needed here.
         </p>
 
         <label className="live-field">
@@ -139,53 +133,31 @@ export function LiveHub({
 
         <div className="live-setlist" aria-label="Setlist">
           {matchCount === 0 ? (
-            <p className="live-empty">No setlist match — type a custom song below.</p>
+            <p className="live-empty">
+              No setlist match. Try another title or artist.
+            </p>
           ) : (
             <>
               <SongGroup
                 heading="Country"
                 songs={filteredCountry}
                 selected={selected}
-                onPick={pickSong}
+                onPick={setSelected}
               />
               <SongGroup
                 heading="Crossover"
                 songs={filteredCrossover}
                 selected={selected}
-                onPick={pickSong}
+                onPick={setSelected}
               />
             </>
           )}
         </div>
 
-        <div className="live-custom">
-          <p className="live-kicker">Custom request</p>
-          <label className="live-field">
-            Song title
-            <input
-              type="text"
-              value={title}
-              onChange={(event) => setTitle(event.target.value)}
-              placeholder="e.g. Jambalaya"
-              autoComplete="off"
-            />
-          </label>
-          <label className="live-field">
-            Artist
-            <input
-              type="text"
-              value={artist}
-              onChange={(event) => setArtist(event.target.value)}
-              placeholder="e.g. Hank Williams"
-              autoComplete="off"
-            />
-          </label>
-        </div>
-
         <p className="live-note" aria-live="polite">
           {canRequest
             ? requestNote
-            : "Pick a song or type a title, then tap an amount."}
+            : "Pick a setlist song, then tap an amount."}
         </p>
 
         <AmountRow
@@ -220,7 +192,7 @@ function SongGroup({
 }: {
   heading: string;
   songs: readonly Song[];
-  selected: Song;
+  selected: Song | null;
   onPick: (song: Song) => void;
 }) {
   if (songs.length === 0) return null;
@@ -230,7 +202,7 @@ function SongGroup({
       <p className="live-group">{heading}</p>
       <ul>
         {songs.map((song) => {
-          const active = sameSong(song, selected);
+          const active = selected ? sameSong(song, selected) : false;
           return (
             <li key={`${song.title}-${song.artist}`}>
               <button
