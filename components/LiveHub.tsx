@@ -39,7 +39,7 @@ export function LiveHub({ facebook, songs }: LiveHubProps) {
   const needle = query.trim().toLowerCase();
   const status = selected
     ? `Request: ${selected.title}`
-    : "Tip only · no request · Tap a song to request.";
+    : "Tip only • no request (tap song to request)";
   const note = selected ? songRequestNote(selected) : tipNote();
   const action = selected ? "Request" : "Tip";
 
