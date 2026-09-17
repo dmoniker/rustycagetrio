@@ -9,6 +9,7 @@ export const site = {
   facebook: "https://www.facebook.com/rustycageseattle",
   youtube: "https://www.youtube.com/@darcymenard",
   gigsalad: "https://www.gigsalad.com/rusty_cage_seattle",
+  venmo: "rustycageseattle",
   joleneVideoId: "cuyIdqal2Ms",
 };
 
