@@ -89,28 +89,40 @@ export function LiveHub({ facebook, songs }: LiveHubProps) {
           />
         </label>
 
+        <p className="live-count" aria-live="polite">
+          {visibleSongs.length === 1
+            ? "1 song"
+            : `${visibleSongs.length} songs`}
+        </p>
+
         <div className="live-setlist" aria-label="Setlist">
           {visibleSongs.length === 0 ? (
             <p className="live-empty">No matches</p>
           ) : (
-            <ul>
-              {visibleSongs.map((song) => {
+            <ol>
+              {visibleSongs.map((song, index) => {
                 const active = selected ? sameSong(song, selected) : false;
+                const n = index + 1;
                 return (
-                  <li key={`${song.title}-${song.artist}`}>
+                  <li key={`${song.title}-${song.artist}`} value={n}>
                     <button
                       type="button"
                       className={active ? "is-selected" : undefined}
                       aria-pressed={active}
                       onClick={() => toggleSong(song)}
                     >
-                      <span>{song.title}</span>
-                      <em>{song.artist}</em>
+                      <span className="live-num" aria-hidden="true">
+                        {n}
+                      </span>
+                      <span>
+                        <span>{song.title}</span>
+                        <em>{song.artist}</em>
+                      </span>
                     </button>
                   </li>
                 );
               })}
-            </ul>
+            </ol>
           )}
         </div>
 

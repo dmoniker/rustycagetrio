@@ -660,7 +660,14 @@ body.live-hub::before {
   -webkit-overflow-scrolling: touch;
 }
 
-.live-setlist ul {
+.live-count {
+  margin: 0 0 0.45rem;
+  color: #b8a892;
+  font-size: 0.88rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.live-setlist ol {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -668,10 +675,13 @@ body.live-hub::before {
 
 .live-setlist button {
   display: grid;
+  grid-template-columns: 2rem 1fr;
+  align-items: start;
+  gap: 0.35rem;
   width: 100%;
   min-height: 3.15rem;
   margin: 0;
-  padding: 0.55rem 0.7rem;
+  padding: 0.55rem 0.35rem 0.55rem 0.45rem;
   border: 0;
   border-bottom: 1px solid rgba(244, 234, 216, 0.08);
   background: transparent;
@@ -681,7 +691,16 @@ body.live-hub::before {
   cursor: pointer;
 }
 
+.live-num {
+  padding-top: 0.12rem;
+  color: #8f8373;
+  font-size: 0.86rem;
+  font-variant-numeric: tabular-nums;
+  font-weight: 650;
+}
+
 .live-setlist button em {
+  display: block;
   color: #b8a892;
   font-style: normal;
   font-size: 0.92rem;
