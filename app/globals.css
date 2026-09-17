@@ -556,11 +556,12 @@ body.live-hub::before {
   width: min(28rem, 100%);
   height: 100dvh;
   margin: 0 auto;
-  padding: 0.55rem 0.75rem calc(0.55rem + env(safe-area-inset-bottom, 0px));
+  padding: 0.55rem 0 0;
 }
 
 .live-top {
   flex: 0 0 auto;
+  padding: 0 0.75rem;
 }
 
 .live-brand {
@@ -627,6 +628,7 @@ body.live-hub::before {
   flex: 1 1 auto;
   min-height: 0;
   overflow: auto;
+  padding: 0 0.75rem 0.35rem;
   -webkit-overflow-scrolling: touch;
 }
 
@@ -674,15 +676,14 @@ body.live-hub::before {
   position: sticky;
   bottom: 0;
   z-index: 5;
-  padding-top: 0.55rem;
-  background: linear-gradient(180deg, transparent, #14110e 18%);
+  padding: 0.65rem 0.75rem calc(0.7rem + env(safe-area-inset-bottom, 0px));
+  background: #1c1916;
+  border-top: 1px solid rgba(244, 234, 216, 0.18);
+  box-shadow: 0 -10px 22px rgba(0, 0, 0, 0.38);
 }
 
 .live-note {
   margin: 0 0 0.45rem;
-  padding: 0.4rem 0.55rem;
-  border-radius: 8px;
-  background: rgba(0, 0, 0, 0.28);
   color: #f4ead8;
   font-size: 0.88rem;
   font-weight: 650;
