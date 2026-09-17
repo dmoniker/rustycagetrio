@@ -25,6 +25,14 @@ export default function HomePage() {
             <Link className="btn btn-ghost" href="/songs">
               See the song list
             </Link>
+            <a
+              className="btn btn-ghost"
+              href={site.facebook}
+              rel="noreferrer"
+              target="_blank"
+            >
+              Follow on Facebook
+            </a>
           </div>
         </div>
         <HeroPhotos />
