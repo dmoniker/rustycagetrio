@@ -37,7 +37,7 @@ export function LiveHub({ facebook, songs }: LiveHubProps) {
   const [selected, setSelected] = useState<Song | null>(null);
 
   const needle = query.trim().toLowerCase();
-  const verb = selected ? "Request" : "Tip";
+  const verb = selected ? "Request" : "Tip only · no request";
   const note = selected ? songRequestNote(selected) : tipNote();
 
   const visibleSongs = useMemo(
@@ -124,7 +124,13 @@ export function LiveHub({ facebook, songs }: LiveHubProps) {
                 rel="noreferrer"
                 target="_blank"
               >
-                <span className="live-amount-verb">{verb}</span>
+                <span
+                  className={
+                    selected ? "live-amount-verb" : "live-amount-verb is-tip"
+                  }
+                >
+                  {verb}
+                </span>
                 <strong>${amount}</strong>
               </a>
             );

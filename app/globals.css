@@ -717,6 +717,15 @@ body.live-hub::before {
   opacity: 0.88;
 }
 
+.live-amount-verb.is-tip {
+  max-width: 100%;
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  line-height: 1.15;
+  text-transform: none;
+}
+
 .live-amount strong {
   font-family: var(--display);
   font-size: 1.28rem;
