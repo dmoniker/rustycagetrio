@@ -37,8 +37,11 @@ export function LiveHub({ facebook, songs }: LiveHubProps) {
   const [selected, setSelected] = useState<Song | null>(null);
 
   const needle = query.trim().toLowerCase();
-  const verb = selected ? "Request" : "Tip only · no request";
+  const status = selected
+    ? `Request: ${selected.title}`
+    : "Tip only · no request";
   const note = selected ? songRequestNote(selected) : tipNote();
+  const action = selected ? "Request" : "Tip";
 
   const visibleSongs = useMemo(
     () => songs.filter((song) => matchesQuery(song, needle)).sort(byTitle),
@@ -110,31 +113,21 @@ export function LiveHub({ facebook, songs }: LiveHubProps) {
 
       <div className="live-dock">
         <p className="live-note" aria-live="polite">
-          {note}
+          {status}
         </p>
         <div className="live-amounts">
-          {REQUEST_AMOUNTS.map((amount) => {
-            const label = `${verb} $${amount}`;
-            return (
-              <a
-                key={amount}
-                className="live-amount"
-                href={venmoPayUrl(amount, note)}
-                aria-label={`${label} via Venmo`}
-                rel="noreferrer"
-                target="_blank"
-              >
-                <span
-                  className={
-                    selected ? "live-amount-verb" : "live-amount-verb is-tip"
-                  }
-                >
-                  {verb}
-                </span>
-                <strong>${amount}</strong>
-              </a>
-            );
-          })}
+          {REQUEST_AMOUNTS.map((amount) => (
+            <a
+              key={amount}
+              className="live-amount"
+              href={venmoPayUrl(amount, note)}
+              aria-label={`${action} $${amount} via Venmo`}
+              rel="noreferrer"
+              target="_blank"
+            >
+              ${amount}
+            </a>
+          ))}
         </div>
       </div>
     </div>

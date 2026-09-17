@@ -699,38 +699,18 @@ body.live-hub::before {
   display: grid;
   align-content: center;
   justify-items: center;
-  min-height: 3.35rem;
-  padding: 0.35rem 0.25rem;
+  min-height: 3.15rem;
+  padding: 0.4rem 0.25rem;
   border-radius: 10px;
   background: #008cff;
   color: #fff;
-  font-weight: 750;
-  text-decoration: none;
-  text-align: center;
-}
-
-.live-amount-verb {
-  font-size: 0.66rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  opacity: 0.88;
-}
-
-.live-amount-verb.is-tip {
-  max-width: 100%;
-  font-size: 0.58rem;
-  font-weight: 700;
-  letter-spacing: 0.01em;
-  line-height: 1.15;
-  text-transform: none;
-}
-
-.live-amount strong {
   font-family: var(--display);
-  font-size: 1.28rem;
+  font-size: 1.35rem;
+  font-weight: 650;
   letter-spacing: -0.03em;
   line-height: 1.1;
+  text-decoration: none;
+  text-align: center;
 }
 
 .live-amount:hover {
