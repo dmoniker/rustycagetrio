@@ -32,55 +32,24 @@ function byTitle(a: Song, b: Song): number {
   );
 }
 
-function AmountRow({
-  note,
-  disabled,
-  verb,
-}: {
-  note: string;
-  disabled?: boolean;
-  verb: "Request" | "Tip";
-}) {
-  return (
-    <div className="live-amounts">
-      {REQUEST_AMOUNTS.map((amount) => {
-        const href = note ? venmoPayUrl(amount, note) : undefined;
-        const label = `${verb} $${amount}`;
-        return (
-          <a
-            key={amount}
-            className="live-amount"
-            href={href}
-            aria-label={`${label} via Venmo`}
-            aria-disabled={disabled || !href ? true : undefined}
-            tabIndex={disabled || !href ? -1 : undefined}
-            onClick={(event) => {
-              if (disabled || !href) event.preventDefault();
-            }}
-            rel="noreferrer"
-            target="_blank"
-          >
-            <span className="live-amount-verb">{verb}</span>
-            <strong>${amount}</strong>
-          </a>
-        );
-      })}
-    </div>
-  );
-}
-
 export function LiveHub({ facebook, songs }: LiveHubProps) {
   const [query, setQuery] = useState("");
   const [selected, setSelected] = useState<Song | null>(null);
 
   const needle = query.trim().toLowerCase();
-  const requestNote = selected ? songRequestNote(selected) : "";
-  const canRequest = Boolean(selected);
+  const verb = selected ? "Request" : "Tip";
+  const note = selected ? songRequestNote(selected) : tipNote();
 
   const visibleSongs = useMemo(
     () => songs.filter((song) => matchesQuery(song, needle)).sort(byTitle),
     [songs, needle],
   );
+
+  function toggleSong(song: Song) {
+    setSelected((current) =>
+      current && sameSong(current, song) ? null : song,
+    );
+  }
 
   return (
     <div className="live">
@@ -133,7 +102,7 @@ export function LiveHub({ facebook, songs }: LiveHubProps) {
                       type="button"
                       className={active ? "is-selected" : undefined}
                       aria-pressed={active}
-                      onClick={() => setSelected(song)}
+                      onClick={() => toggleSong(song)}
                     >
                       <span>{song.title}</span>
                       <em>{song.artist}</em>
@@ -145,24 +114,28 @@ export function LiveHub({ facebook, songs }: LiveHubProps) {
           )}
         </div>
 
-        {canRequest ? (
-          <p className="live-note" aria-live="polite">
-            {requestNote}
-          </p>
-        ) : null}
-
-        <AmountRow
-          note={requestNote}
-          disabled={!canRequest}
-          verb="Request"
-        />
-      </section>
-
-      <section className="live-card live-card-tip" aria-labelledby="tip-heading">
-        <p className="live-kicker" id="tip-heading">
-          Just a tip
+        <p className="live-note" aria-live="polite">
+          {note}
         </p>
-        <AmountRow note={tipNote()} verb="Tip" />
+
+        <div className="live-amounts">
+          {REQUEST_AMOUNTS.map((amount) => {
+            const label = `${verb} $${amount}`;
+            return (
+              <a
+                key={amount}
+                className="live-amount"
+                href={venmoPayUrl(amount, note)}
+                aria-label={`${label} via Venmo`}
+                rel="noreferrer"
+                target="_blank"
+              >
+                <span className="live-amount-verb">{verb}</span>
+                <strong>${amount}</strong>
+              </a>
+            );
+          })}
+        </div>
       </section>
     </div>
   );

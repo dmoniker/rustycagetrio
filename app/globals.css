@@ -626,14 +626,6 @@ body.live-hub::before {
   margin-bottom: 0.85rem;
 }
 
-.live-card-tip {
-  opacity: 0.92;
-}
-
-.live-card-tip .live-kicker {
-  margin-bottom: 0.85rem;
-}
-
 .live-field {
   display: grid;
   gap: 0.35rem;
@@ -760,22 +752,4 @@ body.live-hub::before {
   background: #3a3530;
   color: #8f8373;
   pointer-events: none;
-}
-
-.live-card-tip .live-amount {
-  background: transparent;
-  border: 1px solid rgba(244, 234, 216, 0.28);
-  color: #f4ead8;
-  box-shadow: none;
-}
-
-.live-card-tip .live-amount:hover {
-  color: #f4ead8;
-  background: rgba(244, 234, 216, 0.08);
-}
-
-.live-fine {
-  margin: 0.75rem 0 0;
-  color: #9b8e7c;
-  font-size: 0.88rem;
 }
