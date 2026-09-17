@@ -47,7 +47,7 @@ function AmountRow({
             className="live-amount"
             href={href}
             aria-label={`${label} via Venmo`}
-            aria-disabled={disabled || !href}
+            aria-disabled={disabled || !href ? true : undefined}
             tabIndex={disabled || !href ? -1 : undefined}
             onClick={(event) => {
               if (disabled || !href) event.preventDefault();
@@ -166,7 +166,7 @@ export function LiveHub({
               type="text"
               value={title}
               onChange={(event) => setTitle(event.target.value)}
-              placeholder="Jambalaya"
+              placeholder="e.g. Jambalaya"
               autoComplete="off"
             />
           </label>
@@ -176,7 +176,7 @@ export function LiveHub({
               type="text"
               value={artist}
               onChange={(event) => setArtist(event.target.value)}
-              placeholder="Hank Williams"
+              placeholder="e.g. Hank Williams"
               autoComplete="off"
             />
           </label>

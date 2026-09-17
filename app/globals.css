@@ -659,7 +659,7 @@ body.live-hub::before {
 }
 
 .live-field input::placeholder {
-  color: #8f8373;
+  color: #6f675c;
 }
 
 .live-field input:focus {
