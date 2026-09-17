@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { countrySongs, crossoverSongs } from "@/lib/content";
+import { countrySongs, crossoverSongs, originalSongs } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Song list",
   description:
-    "Country-first setlist from Rusty Cage Trio — Cash, Dolly, Garth, Willie, and a short crossover set.",
+    "Country-first setlist from Rusty Cage Trio — Cash, Dolly, Garth, Willie, a short crossover set, and a few originals.",
 };
 
 function SongBlock({
@@ -37,13 +37,14 @@ export default function SongsPage() {
         <p className="kicker">The book</p>
         <h1>Songs people actually sing</h1>
         <p className="lede">
-          Country first. A short crossover set after. Requests welcome — tell us
-          what the room needs.
+          Country first. A short crossover set after. A handful of originals.
+          Requests welcome — tell us what the room needs.
         </p>
       </header>
       <div className="song-cols">
         <SongBlock heading="Country" songs={countrySongs} />
         <SongBlock heading="Crossover" songs={crossoverSongs} />
+        <SongBlock heading="Originals" songs={originalSongs} />
       </div>
       <p style={{ margin: "2rem 0 3rem" }}>
         <Link className="btn" href="/contact">
