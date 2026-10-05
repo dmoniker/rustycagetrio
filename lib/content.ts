@@ -198,6 +198,7 @@ export const crossoverSongs = [
   { title: "Maggie’s Farm", artist: "Bob Dylan" },
   { title: "Rebel Yell", artist: "Billy Idol" },
   { title: "Have You Ever Seen the Rain?", artist: "Creedence Clearwater Revival" },
+  { title: "Lodi", artist: "Creedence Clearwater Revival" },
   { title: "Southern Cross", artist: "Crosby, Stills & Nash" },
   { title: "Take It Easy", artist: "Eagles" },
   { title: "Truckin’", artist: "Grateful Dead" },
@@ -223,7 +224,7 @@ export type Song = {
 /**
  * Same book as `/songs` and `/live`.
  * Production was 38 (28 country + 10 crossover).
- * This list is 66 (32 country + 30 crossover + 4 originals).
+ * This list is 67 (32 country + 31 crossover + 4 originals).
  */
 export const setlistSongs: Song[] = [
   ...countrySongs,
