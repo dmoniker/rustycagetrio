@@ -3,10 +3,12 @@
 import { useMemo, useState } from "react";
 import Link from "next/link";
 import type { Song } from "@/lib/content";
+import { handoffVenmoClick } from "@/lib/venmo-launch";
 import {
   REQUEST_AMOUNTS,
   songRequestNote,
   tipNote,
+  venmoLaunchPlan,
   venmoPayUrl,
 } from "@/lib/venmo";
 
@@ -23,6 +25,22 @@ function matchesQuery(song: Song, query: string): boolean {
 
 function sameSong(a: Song, b: Song): boolean {
   return a.title === b.title && a.artist === b.artist;
+}
+
+function isPlainActivation(event: {
+  button: number;
+  metaKey: boolean;
+  ctrlKey: boolean;
+  shiftKey: boolean;
+  altKey: boolean;
+}): boolean {
+  return (
+    event.button === 0 &&
+    !event.metaKey &&
+    !event.ctrlKey &&
+    !event.shiftKey &&
+    !event.altKey
+  );
 }
 
 function byTitle(a: Song, b: Song): number {
@@ -124,6 +142,21 @@ export function LiveHub({ facebook, songs }: LiveHubProps) {
               aria-label={`${action} $${amount} via Venmo`}
               rel="noreferrer"
               target="_blank"
+              onClick={(event) => {
+                if (!isPlainActivation(event)) return;
+                const plan = venmoLaunchPlan(
+                  {
+                    userAgent: navigator.userAgent,
+                    platform: navigator.platform,
+                    maxTouchPoints: navigator.maxTouchPoints,
+                  },
+                  amount,
+                  note,
+                );
+                if (!handoffVenmoClick(event.currentTarget, plan)) {
+                  event.preventDefault();
+                }
+              }}
             >
               ${amount}
             </a>
