@@ -69,7 +69,7 @@ export function QuoteForm() {
 
       <label>
         Venue / city
-        <input name="venue" type="text" placeholder="Winery, backyard, hall — and city" />
+        <input name="venue" type="text" placeholder="Winery, backyard, house party — and city" />
       </label>
 
       <label>

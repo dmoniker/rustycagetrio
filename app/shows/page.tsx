@@ -15,14 +15,14 @@ export default function ShowsPage() {
         <p className="kicker">On the calendar</p>
         <h1>Upcoming shows</h1>
         <p className="lede">
-          Public nights we can tell you about. Come hear us, or ask about a
-          private booking of your own.
+          Confirmed public nights. For a wedding, private party, winery, or
+          company event, check a date instead.
         </p>
       </header>
       <ShowsList />
       <p style={{ margin: "2rem 0 3rem" }}>
         <Link className="btn" href="/contact">
-          Request a quote
+          Check your date
         </Link>
       </p>
     </div>

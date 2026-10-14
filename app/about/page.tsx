@@ -6,19 +6,21 @@ import { site } from "@/lib/content";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Rusty Cage formed in Shoreline in 2024. Vocals, guitar, harmonica, bass, and drums. Low-volume acoustic country for private events.",
+    "Rusty Cage is based in Shoreline, WA. Acoustic country for weddings, private parties, wineries, and company events. Travel about 50 miles.",
 };
 
 export default function AboutPage() {
   return (
     <div className="wrap">
       <header className="page-hero">
-        <p className="kicker">Shoreline, {site.formed}</p>
+        <p className="kicker">
+          {site.location}, {site.formed}
+        </p>
         <h1>A porch band that can hold a room</h1>
         <p className="lede">
-          Rusty Cage formed in Shoreline in 2024. Vocals, guitar, harmonica,
-          bass, and drums — played at conversation volume, with enough body to
-          fill a hall.
+          Rusty Cage is based in {site.location}. Formed in {site.formed}.
+          Vocals, guitar, harmonica, bass, and drums — played at conversation
+          volume, with enough body to fill a hall.
         </p>
       </header>
 
@@ -33,15 +35,16 @@ export default function AboutPage() {
         </figure>
         <div>
           <p>
-            We built this for private rooms: weddings, anniversary parties,
-            company nights, wineries, backyards, and halls. The setup is about
-            5′ × 6′. We bring our own PA. If the site has no power, we bring a
-            generator.
+            We built this for private rooms: weddings, birthdays, anniversaries,
+            backyard and house parties, company events, wineries, and halls.
+            The setup is about 5′ × 6′. We bring our own PA. If the site has no
+            power, we bring a generator.
           </p>
           <p>
-            From Shoreline we travel about 200 miles. Recent private bookings
-            include an Issaquah anniversary party. Also Porchfest Edmonds,
-            Shorelake Arts Concerts in the Park, and MOHAI.
+            From {site.location} we travel about {site.travel}, which covers
+            Seattle and the Eastside. Recent private bookings include an
+            Issaquah anniversary party. Also Porchfest Edmonds, Shorelake Arts
+            Concerts in the Park, and MOHAI.
           </p>
           <p>
             The volume stays low on purpose. People can talk. People can still
@@ -49,7 +52,7 @@ export default function AboutPage() {
           </p>
           <p>
             <Link className="btn" href="/contact">
-              Request a quote
+              Check your date
             </Link>
           </p>
         </div>
@@ -64,7 +67,9 @@ export default function AboutPage() {
             <li>Own PA included in every package</li>
             <li>About 5′ × 6′ on the floor</li>
             <li>Generator for sites with no power</li>
-            <li>Travel from Shoreline ~200 miles</li>
+            <li>
+              Travel from {site.location}, about {site.travel}
+            </li>
           </ul>
         </div>
         <figure className="frame" style={{ transform: "rotate(-0.4deg)" }}>

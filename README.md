@@ -1,6 +1,6 @@
 # Rusty Cage Trio
 
-Public site for the Shoreline / Seattle acoustic country trio. Built to close private bookings — weddings, parties, corporate — and to replace the BandVista page at rustycagetrio.com.
+Public site for the Shoreline, WA acoustic country trio. Built to close private bookings — weddings, private parties, wineries, and company events across Seattle and the Eastside, within about 50 miles — and to replace the BandVista page at rustycagetrio.com.
 
 No auth, no CMS, no database, no API keys. Quote requests POST to FormSubmit (`rustycagetrio@gmail.com`) and redirect to `/thanks`.
 

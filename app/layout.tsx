@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     template: "%s — Rusty Cage",
   },
   description:
-    "Shoreline acoustic country trio for weddings, private parties, and corporate events in the Seattle area. Low volume, own PA, 5-by-6 setup. Request a quote.",
+    "Shoreline, WA acoustic country trio for weddings, private parties, wineries, and company events in Seattle and the Eastside. Travel about 50 miles. Check your date.",
   alternates: { canonical: "/" },
   openGraph: {
     title: "Rusty Cage",
