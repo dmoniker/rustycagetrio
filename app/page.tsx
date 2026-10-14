@@ -1,8 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
+import { FacebookReel } from "@/components/FacebookReel";
 import { HeroPhotos } from "@/components/HeroPhotos";
 import { ShowsList } from "@/components/ShowsList";
-import { packages, site } from "@/lib/content";
+import { packages, reels, site } from "@/lib/content";
 
 export default function HomePage() {
   return (
@@ -12,44 +13,48 @@ export default function HomePage() {
           <p className="kicker">
             {site.location} · est. {site.formed}
           </p>
-          <h1>{site.tagline}</h1>
+          <h1>
+            Acoustic country trio for weddings, private parties, wineries &
+            company events
+            <span className="hero-where">— {site.serviceArea}</span>
+          </h1>
           <p className="lede">
-            Warm, low-volume country for rooms that still want conversation.
-            Vocals, guitar, harmonica, bass, and drums. We bring the PA — and a
-            generator if the site has no power.
+            Private parties get the same care as a wedding: birthdays,
+            anniversaries, backyard and house parties. We also play wineries
+            and company events across {site.serviceArea}. Vocals, guitar,
+            harmonica, bass, and drums, kept at a volume where people can still
+            talk. We bring the PA — and a generator if the site has no power.
           </p>
           <div className="cta-row">
             <Link className="btn" href="/contact">
-              Request a quote
+              Check your date
             </Link>
             <Link className="btn btn-ghost" href="/songs">
               See the song list
             </Link>
-            <a
-              className="btn btn-ghost"
-              href={site.facebook}
-              rel="noreferrer"
-              target="_blank"
-            >
-              Follow on Facebook
-            </a>
           </div>
         </div>
         <HeroPhotos />
       </section>
 
       <section className="wrap band">
-        <div className="section-head">
+        <div className="song-banner">
           <div>
-            <p className="kicker">On the calendar</p>
-            <h2>Upcoming shows</h2>
+            <p className="kicker">The book</p>
+            <h2>Songs for the whole day</h2>
+            <p>
+              Ceremony, cocktail hour, dinner, sing-alongs, and dancing.
+              Country first — Cash, Dolly, Willie, CCR, Neil Young — then the
+              songs people yell for.
+            </p>
           </div>
-          <Link href="/shows">See all shows</Link>
+          <Link className="btn" href="/songs">
+            See the song list
+          </Link>
         </div>
-        <ShowsList />
       </section>
 
-      <section className="wrap band">
+      <section className="wrap band" id="packages">
         <div className="section-head">
           <div>
             <p className="kicker">Private bookings</p>
@@ -68,39 +73,53 @@ export default function HomePage() {
           ))}
         </div>
         <p className="fine" style={{ marginTop: "1.1rem" }}>
-          Travel ~200 miles. Generator for sites with no power.
+          Travel about {site.travel} from {site.location}. Generator for sites
+          with no power. Winter and weekday rates are available — mention the
+          date when you check it.
         </p>
       </section>
 
-      <section className="wrap band split">
-        <div>
-          <p className="kicker">Listen</p>
-          <h2>Jolene, the way we play it</h2>
-          <p className="lede">
-            A porch-volume country trio — not a bar-band brochure. If this
-            sounds like your wedding, party, or company night, ask for a date.
-          </p>
-          <div className="cta-row">
-            <Link className="btn" href="/contact">
-              Request a quote
-            </Link>
-            <a
-              className="btn btn-ghost"
-              href={site.gigsalad}
-              rel="noreferrer"
-              target="_blank"
-            >
-              5.0 on Gig Salad
-            </a>
+      <section className="wrap band">
+        <div className="section-head">
+          <div>
+            <p className="kicker">Listen</p>
+            <h2>Jolene, the way we play it</h2>
           </div>
         </div>
-        <div className="video-wrap">
-          <iframe
-            src={`https://www.youtube.com/embed/${site.joleneVideoId}`}
-            title="Rusty Cage — Jolene"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowFullScreen
-          />
+        <div className="split">
+          <div>
+            <p className="lede">
+              Porch-volume country for a wedding, a birthday, a winery
+              afternoon, or a company night. Two more clips — Friends in Low
+              Places and CCR — are on the Facebook page.
+            </p>
+            <div className="cta-row">
+              <Link className="btn" href="/contact">
+                Check your date
+              </Link>
+              <a
+                className="btn btn-ghost"
+                href={site.gigsalad}
+                rel="noreferrer"
+                target="_blank"
+              >
+                5.0 on Gig Salad
+              </a>
+            </div>
+          </div>
+          <div className="video-wrap">
+            <iframe
+              src={`https://www.youtube.com/embed/${site.joleneVideoId}`}
+              title="Rusty Cage — Jolene"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+            />
+          </div>
+        </div>
+        <div className="reels">
+          {reels.map((reel) => (
+            <FacebookReel key={reel.href} href={reel.href} title={reel.title} />
+          ))}
         </div>
       </section>
 
@@ -118,13 +137,31 @@ export default function HomePage() {
           <h2>Built for wineries, backyards, and halls</h2>
           <p>
             We keep the volume low and the footprint small — about 5′ × 6′.
-            Own PA. Travel from Shoreline about 200 miles. Formed 2024, already
-            in living rooms and at MOHAI.
+            Own PA. Based in {site.location}, we travel about {site.travel},
+            which covers Seattle and the Eastside. Formed {site.formed}. Living
+            rooms, anniversary parties, and MOHAI.
           </p>
           <p>
             <Link href="/about">More about the trio</Link>
+            {" · "}
+            <Link href="/songs">Full song list</Link>
           </p>
         </div>
+      </section>
+
+      <section className="wrap band shows-quiet">
+        <div className="section-head">
+          <div>
+            <p className="kicker">If you want to hear us first</p>
+            <h2>Public shows</h2>
+          </div>
+          <Link href="/shows">All public shows</Link>
+        </div>
+        <p className="fine">
+          Confirmed public nights. Weddings, private parties, wineries, and
+          company events are booked with a quote.
+        </p>
+        <ShowsList />
       </section>
     </>
   );

@@ -2,8 +2,10 @@ export const site = {
   name: "Rusty Cage",
   email: "booking@rustycageseattle.com",
   tagline:
-    "Acoustic country trio for weddings, parties, and bar gigs in the Seattle area",
-  location: "Shoreline / Seattle",
+    "Acoustic country trio for weddings, private parties, wineries & company events — Seattle & Eastside",
+  location: "Shoreline, WA",
+  serviceArea: "Seattle & Eastside",
+  travel: "50 miles",
   formed: "2024",
   instagram: "https://www.instagram.com/rustycagetrio",
   facebook: "https://www.facebook.com/rustycageseattle",
@@ -12,6 +14,17 @@ export const site = {
   venmo: "rustycageseattle",
   joleneVideoId: "cuyIdqal2Ms",
 };
+
+export const reels = [
+  {
+    href: "https://www.facebook.com/reel/1085779021033672",
+    title: "Friends in Low Places",
+  },
+  {
+    href: "https://www.facebook.com/reel/2186905388527560",
+    title: "Creedence Clearwater Revival",
+  },
+] as const;
 
 export const heroPhotos = [
   {
@@ -33,18 +46,32 @@ export const heroPhotos = [
 
 export const packages = [
   {
+    name: "Duo",
+    duration: "Shorter set",
+    price: "from $600",
+    detail: "Two players, PA included",
+    note: "A smaller lineup for small winery rooms, rehearsal dinners, and intimate private parties.",
+  },
+  {
     name: "Cocktail Hour",
     duration: "90 minutes",
     price: "$900",
     detail: "PA included",
-    note: "Background country for cocktail hour, rehearsal dinner, or a welcome party.",
+    note: "Background country for cocktail hour, a rehearsal dinner, or a welcome party.",
+  },
+  {
+    name: "Ceremony + Cocktail Hour",
+    duration: "Ceremony + 90 minutes",
+    price: "$1,100–$1,200",
+    detail: "Processional, recessional, one learned request, PA included",
+    note: "Processional and recessional songs, then we stay for cocktail hour. One learned request is included.",
   },
   {
     name: "Wedding / Private Party",
     duration: "2 hours",
     price: "$1,350",
     detail: "Two sets, requests welcome, PA included",
-    note: "The typical backyard, winery, or hall booking. Short break between sets.",
+    note: "Weddings and private parties — birthdays, anniversaries, backyard and house parties. Short break between sets.",
   },
   {
     name: "Corporate / Special Event",
@@ -235,6 +262,102 @@ export const setlistSongs: Song[] = [
 export const eventTypes = [
   { value: "wedding", label: "Wedding" },
   { value: "private-party", label: "Private party" },
-  { value: "corporate", label: "Corporate" },
+  { value: "winery", label: "Winery" },
+  { value: "corporate", label: "Company event" },
   { value: "other", label: "Other" },
 ] as const;
+
+export const occasions = [
+  "Ceremony",
+  "Cocktail hour",
+  "Dinner",
+  "Sing-along",
+  "Dance",
+] as const;
+
+export type Occasion = (typeof occasions)[number];
+
+/**
+ * Booking guide for where a song usually fits. Songs stay in the country /
+ * crossover / originals lists; these tags only group them. A song can fit
+ * more than one part of the day.
+ */
+const songOccasions = {
+  "Friends in Low Places": ["Sing-along", "Dance"],
+  Jolene: ["Sing-along", "Cocktail hour"],
+  "Ring of Fire": ["Sing-along", "Dance"],
+  "Folsom Prison Blues": ["Dance", "Cocktail hour"],
+  "Boot Scootin’ Boogie": ["Dance"],
+  "Take Me Home, Country Roads": ["Ceremony", "Sing-along"],
+  "On the Road Again": ["Sing-along", "Cocktail hour"],
+  "The Gambler": ["Sing-along", "Dinner"],
+  "Forever and Ever, Amen": ["Ceremony", "Dinner"],
+  "Copperhead Road": ["Dance"],
+  Chattahoochee: ["Dance"],
+  "Guitars, Cadillacs": ["Dance", "Cocktail hour"],
+  "Here’s a Quarter (Call Someone Who Cares)": ["Cocktail hour", "Sing-along"],
+  "Achy Breaky Heart": ["Dance", "Sing-along"],
+  "Fast Car": ["Dinner", "Cocktail hour"],
+  "Drivin’ My Life Away": ["Dance", "Cocktail hour"],
+  "Move It On Over": ["Dance"],
+  "Act Naturally": ["Cocktail hour", "Dance"],
+  "King of the Road": ["Cocktail hour", "Dinner"],
+  "Waltz Across Texas": ["Ceremony", "Dinner"],
+  "City of New Orleans": ["Dinner", "Cocktail hour"],
+  "Gentle on My Mind": ["Ceremony", "Cocktail hour", "Dinner"],
+  "Rusty Cage": ["Cocktail hour"],
+  "That’s All Right": ["Dance", "Cocktail hour"],
+  "Call Me the Breeze": ["Cocktail hour", "Dinner"],
+  "Dead Flowers": ["Cocktail hour"],
+  "Willin’": ["Dinner", "Cocktail hour"],
+  "Speed of the Sound of Loneliness": ["Ceremony", "Dinner"],
+  Jambalaya: ["Sing-along", "Dance"],
+  "Family Tradition": ["Sing-along", "Dance"],
+  "(Hey Won’t You Play) Another Somebody Done Somebody Wrong Song": [
+    "Dinner",
+    "Sing-along",
+  ],
+  "Danny Boy": ["Ceremony"],
+  "Harvest Moon": ["Ceremony", "Dinner"],
+  "Heart of Gold": ["Ceremony", "Cocktail hour", "Dinner"],
+  "Peaceful Easy Feeling": ["Ceremony", "Cocktail hour", "Dinner"],
+  "Midnight Rider": ["Cocktail hour"],
+  Margaritaville: ["Sing-along", "Cocktail hour"],
+  "Jack and Diane": ["Sing-along"],
+  "Long Train Runnin’": ["Dance"],
+  "Mary Jane’s Last Dance": ["Dance"],
+  "Song Sung Blue": ["Sing-along", "Dinner"],
+  "All Apologies": ["Dinner", "Cocktail hour"],
+  "Wake Me Up": ["Dance"],
+  "Sweet Child O’ Mine": ["Sing-along", "Dance"],
+  "The Joker": ["Cocktail hour", "Sing-along"],
+  "Me and Bobby McGee": ["Cocktail hour", "Dinner", "Sing-along"],
+  "A Horse With No Name": ["Cocktail hour", "Dinner"],
+  "Piano Man": ["Sing-along"],
+  "Old Man": ["Ceremony", "Dinner"],
+  "Rocky Mountain Way": ["Dance", "Cocktail hour"],
+  "Ain’t No Sunshine": ["Ceremony", "Dinner"],
+  "Maggie’s Farm": ["Cocktail hour"],
+  "Rebel Yell": ["Dance"],
+  "Have You Ever Seen the Rain?": ["Sing-along", "Cocktail hour"],
+  Lodi: ["Cocktail hour", "Dinner"],
+  "Southern Cross": ["Cocktail hour", "Dinner"],
+  "Take It Easy": ["Sing-along", "Cocktail hour"],
+  "Truckin’": ["Dance", "Sing-along"],
+  "Drunken Sailor": ["Sing-along", "Dance"],
+  "Hard Times": ["Dinner"],
+  "Listen to the Music": ["Dance", "Cocktail hour"],
+  "Elderly Woman Behind the Counter": ["Dinner", "Cocktail hour"],
+  "The Long Cut": ["Cocktail hour"],
+  "My Rent": ["Cocktail hour"],
+  "Tangerine Sky": ["Dinner", "Cocktail hour"],
+  Technology: ["Cocktail hour"],
+  "Caterpillar Dream": ["Dinner"],
+} as const satisfies Record<string, readonly Occasion[]>;
+
+export function occasionsFor(title: string): readonly Occasion[] {
+  if (Object.prototype.hasOwnProperty.call(songOccasions, title)) {
+    return songOccasions[title as keyof typeof songOccasions];
+  }
+  return [];
+}
