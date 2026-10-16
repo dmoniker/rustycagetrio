@@ -200,6 +200,7 @@ export const countrySongs = [
     artist: "B.J. Thomas",
   },
   { title: "Danny Boy", artist: "Conway Twitty" },
+  { title: "Tennessee Whiskey", artist: "Chris Stapleton" },
 ] as const;
 
 export const crossoverSongs = [
@@ -251,7 +252,7 @@ export type Song = {
 /**
  * Same book as `/songs` and `/live`.
  * Production was 38 (28 country + 10 crossover).
- * This list is 67 (32 country + 31 crossover + 4 originals).
+ * This list is 68 (33 country + 31 crossover + 4 originals).
  */
 export const setlistSongs: Song[] = [
   ...countrySongs,
