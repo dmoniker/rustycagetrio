@@ -27,7 +27,11 @@ export function HeroPhotos() {
         {heroPhotos.map((photo, i) => (
           <Image
             key={photo.src}
-            className={i === index ? "is-current" : undefined}
+            className={
+              [i === index ? "is-current" : "", "fit" in photo ? "is-contain" : ""]
+                .filter(Boolean)
+                .join(" ") || undefined
+            }
             src={photo.src}
             alt={photo.alt}
             fill

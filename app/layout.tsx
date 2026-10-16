@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     siteName: site.name,
     locale: "en_US",
     type: "website",
-    images: [{ url: "/photos/rusty-cage-outdoor.jpg" }],
+    images: [{ url: "/photos/gallery4-trio-wide-logo.jpg" }],
   },
 };
 

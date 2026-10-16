@@ -44,4 +44,4 @@ When the preview looks right, point `rustycagetrio.com` at the Vercel project: a
 
 ## Photos
 
-Live photos in `public/photos` came from the existing BandVista media page. Do not replace them with generated pictures of the musicians.
+Live photos in `public/photos` (gallery1–5) come from the Rusty Cage GigSalad gallery (850px wide max, so keep them at modest display sizes). Do not replace them with generated pictures of the musicians.

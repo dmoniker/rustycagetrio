@@ -118,7 +118,13 @@ export default function HomePage() {
         </div>
         <div className="reels">
           {reels.map((reel) => (
-            <FacebookReel key={reel.href} href={reel.href} title={reel.title} />
+            <FacebookReel
+              key={reel.href}
+              href={reel.href}
+              title={reel.title}
+              width={reel.width}
+              height={reel.height}
+            />
           ))}
         </div>
       </section>
@@ -126,10 +132,10 @@ export default function HomePage() {
       <section className="wrap band split">
         <figure className="frame" style={{ transform: "rotate(0.5deg)" }}>
           <Image
-            src="/photos/forest.jpeg"
-            alt="Rusty Cage in the woods near Shoreline"
-            width={1400}
-            height={1800}
+            src="/photos/gallery1-trio-logo-square.jpg"
+            alt="Rusty Cage trio on stage with the guitar logo backdrop"
+            width={850}
+            height={850}
           />
         </figure>
         <div>

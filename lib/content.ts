@@ -19,28 +19,46 @@ export const reels = [
   {
     href: "https://www.facebook.com/reel/1085779021033672",
     title: "Friends in Low Places",
+    // Source video is 320x240 (4:3) per Facebook's embed data.
+    width: 320,
+    height: 240,
   },
   {
     href: "https://www.facebook.com/reel/2186905388527560",
     title: "Creedence Clearwater Revival",
+    // Source video is 960x540 (16:9) per Facebook's embed data.
+    width: 960,
+    height: 540,
   },
 ] as const;
 
 export const heroPhotos = [
   {
-    src: "/photos/rusty-cage-outdoor.jpg",
-    alt: "Rusty Cage playing an outdoor set in the woods near Shoreline",
-    caption: "A backyard set. Shoreline woods.",
+    src: "/photos/gallery2-girls-on-the-run.jpg",
+    alt: "Rusty Cage playing the Girls on the Run event stage",
+    caption: "Girls on the Run event.",
   },
   {
-    src: "/photos/mohai.JPG",
-    alt: "Rusty Cage performing at MOHAI in Seattle",
-    caption: "MOHAI, Seattle.",
+    src: "/photos/gallery4-trio-wide-logo.jpg",
+    alt: "Rusty Cage trio on stage in front of the Rusty Cage Seattle logo",
+    caption: "The trio on stage.",
   },
   {
-    src: "/photos/poster.jpg",
-    alt: "Illustrated poster of Rusty Cage",
-    caption: "The trio.",
+    src: "/photos/gallery3-pub-live.jpg",
+    alt: "Rusty Cage playing live at a pub",
+    caption: "Live at the pub.",
+  },
+  {
+    src: "/photos/gallery1-trio-logo-square.jpg",
+    alt: "Rusty Cage trio on stage with the guitar logo backdrop",
+    caption: "Rusty Cage, Seattle.",
+    fit: "contain",
+  },
+  {
+    src: "/photos/gallery5-alt-country-promo.png",
+    alt: "Rusty Cage alt-country Seattle promo graphic",
+    caption: "Alt-country, Seattle.",
+    fit: "contain",
   },
 ] as const;
 

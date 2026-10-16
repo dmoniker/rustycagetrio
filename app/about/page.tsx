@@ -27,10 +27,10 @@ export default function AboutPage() {
       <section className="split band">
         <figure className="frame">
           <Image
-            src="/photos/about.jpeg"
-            alt="Rusty Cage with the truck, Shoreline woods"
-            width={1400}
-            height={1800}
+            src="/photos/gallery2-girls-on-the-run.jpg"
+            alt="Rusty Cage playing the Girls on the Run event stage"
+            width={850}
+            height={638}
           />
         </figure>
         <div>
@@ -74,10 +74,10 @@ export default function AboutPage() {
         </div>
         <figure className="frame" style={{ transform: "rotate(-0.4deg)" }}>
           <Image
-            src="/photos/truck-band.jpeg"
-            alt="Rusty Cage in front of a Ford pickup"
-            width={1600}
-            height={1200}
+            src="/photos/gallery4-trio-wide-logo.jpg"
+            alt="Rusty Cage trio on stage in front of the Rusty Cage Seattle logo"
+            width={850}
+            height={638}
           />
         </figure>
       </section>
