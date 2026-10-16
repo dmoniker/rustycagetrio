@@ -5,7 +5,8 @@ export const site = {
     "Acoustic country trio for weddings, private parties, wineries & company events — Seattle & Eastside",
   location: "Shoreline, WA",
   serviceArea: "Seattle & Eastside",
-  travel: "50 miles",
+  travelLine:
+    "Based in Shoreline, we travel throughout Washington and the Northwest, and travel costs are added to the quote for distances beyond about 50 miles.",
   formed: "2024",
   instagram: "https://www.instagram.com/rustycagetrio",
   facebook: "https://www.facebook.com/rustycageseattle",

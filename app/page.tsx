@@ -73,7 +73,7 @@ export default function HomePage() {
           ))}
         </div>
         <p className="fine" style={{ marginTop: "1.1rem" }}>
-          Travel about {site.travel} from {site.location}. Generator for sites
+          {site.travelLine} Generator for sites
           with no power. Winter and weekday rates are available — mention the
           date when you check it.
         </p>
@@ -143,8 +143,7 @@ export default function HomePage() {
           <h2>Built for wineries, backyards, and halls</h2>
           <p>
             We keep the volume low and the footprint small — about 5′ × 6′.
-            Own PA. Based in {site.location}, we travel about {site.travel},
-            which covers Seattle and the Eastside. Formed {site.formed}. Living
+            Own PA. {site.travelLine} Formed {site.formed}. Living
             rooms, anniversary parties, and MOHAI.
           </p>
           <p>

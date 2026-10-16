@@ -6,7 +6,7 @@ import { site } from "@/lib/content";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Rusty Cage is based in Shoreline, WA. Acoustic country for weddings, private parties, wineries, and company events. Travel about 50 miles.",
+    "Rusty Cage is based in Shoreline, WA. Acoustic country for weddings, private parties, wineries, and company events. Travel throughout Washington and the Northwest.",
 };
 
 export default function AboutPage() {
@@ -41,8 +41,7 @@ export default function AboutPage() {
             power, we bring a generator.
           </p>
           <p>
-            From {site.location} we travel about {site.travel}, which covers
-            Seattle and the Eastside. Recent private bookings include an
+            {site.travelLine} Recent private bookings include an
             Issaquah anniversary party. Also Porchfest Edmonds, Shorelake Arts
             Concerts in the Park, and MOHAI.
           </p>
@@ -67,9 +66,7 @@ export default function AboutPage() {
             <li>Own PA included in every package</li>
             <li>About 5′ × 6′ on the floor</li>
             <li>Generator for sites with no power</li>
-            <li>
-              Travel from {site.location}, about {site.travel}
-            </li>
+            <li>Travels throughout Washington and the Northwest; travel costs added beyond about 50 miles</li>
           </ul>
         </div>
         <figure className="frame" style={{ transform: "rotate(-0.4deg)" }}>

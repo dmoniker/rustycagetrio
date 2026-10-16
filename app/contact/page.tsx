@@ -5,7 +5,7 @@ import { packages, site } from "@/lib/content";
 export const metadata: Metadata = {
   title: "Request a quote",
   description:
-    "Check a date with Rusty Cage Trio for a wedding, private party, winery, or company event. Based in Shoreline, WA. Travel about 50 miles.",
+    "Check a date with Rusty Cage Trio for a wedding, private party, winery, or company event. Based in Shoreline, WA. Travel throughout Washington and the Northwest.",
 };
 
 export default function ContactPage() {
@@ -37,7 +37,7 @@ export default function ContactPage() {
             ))}
           </ul>
           <p>
-            Travel about {site.travel} from {site.location}. Winter and weekday
+            {site.travelLine} Winter and weekday
             rates are available. Generator if there is no power.
           </p>
           <p>
