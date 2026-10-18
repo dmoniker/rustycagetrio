@@ -31,6 +31,13 @@ export const reels = [
     width: 960,
     height: 540,
   },
+  {
+    href: "https://www.facebook.com/reel/2125246604759629",
+    title: "Tennessee Whiskey on Facebook",
+    // Source video is 1920x1080 (16:9) per Facebook's embed data.
+    width: 960,
+    height: 540,
+  },
 ] as const;
 
 export const heroPhotos = [
