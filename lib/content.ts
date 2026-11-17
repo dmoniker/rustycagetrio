@@ -20,10 +20,6 @@ export const youtubeVideos = [
     id: "TwK2oV83Yuw",
     title: "Practice Montage",
   },
-  {
-    id: "cuyIdqal2Ms",
-    title: "Jolene",
-  },
 ] as const;
 
 export const reels = [
