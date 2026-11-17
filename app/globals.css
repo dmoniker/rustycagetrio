@@ -400,6 +400,16 @@ nav a[aria-current="page"] {
   border: 0;
 }
 
+.yt-videos {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.yt-videos figcaption {
+  font-size: 0.85rem;
+  padding-top: 0.4rem;
+}
+
 .song-cols {
   display: grid;
   grid-template-columns: 1fr 1fr minmax(13rem, 0.7fr);

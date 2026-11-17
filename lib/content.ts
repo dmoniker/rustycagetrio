@@ -13,8 +13,18 @@ export const site = {
   youtube: "https://www.youtube.com/@darcymenard",
   gigsalad: "https://www.gigsalad.com/rusty_cage_seattle",
   venmo: "rustycageseattle",
-  joleneVideoId: "cuyIdqal2Ms",
 };
+
+export const youtubeVideos = [
+  {
+    id: "TwK2oV83Yuw",
+    title: "Practice Montage",
+  },
+  {
+    id: "cuyIdqal2Ms",
+    title: "Jolene",
+  },
+] as const;
 
 export const reels = [
   {

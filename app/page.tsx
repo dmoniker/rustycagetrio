@@ -3,7 +3,7 @@ import Link from "next/link";
 import { FacebookReel } from "@/components/FacebookReel";
 import { HeroPhotos } from "@/components/HeroPhotos";
 import { ShowsList } from "@/components/ShowsList";
-import { packages, reels, site } from "@/lib/content";
+import { packages, reels, site, youtubeVideos } from "@/lib/content";
 
 export default function HomePage() {
   return (
@@ -83,7 +83,7 @@ export default function HomePage() {
         <div className="section-head">
           <div>
             <p className="kicker">Listen</p>
-            <h2>Jolene, the way we play it</h2>
+            <h2>Hear us play</h2>
           </div>
         </div>
         <div className="split">
@@ -107,13 +107,20 @@ export default function HomePage() {
               </a>
             </div>
           </div>
-          <div className="video-wrap">
-            <iframe
-              src={`https://www.youtube.com/embed/${site.joleneVideoId}`}
-              title="Rusty Cage — Jolene"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowFullScreen
-            />
+          <div className="yt-videos">
+            {youtubeVideos.map((video) => (
+              <figure key={video.id}>
+                <div className="video-wrap">
+                  <iframe
+                    src={`https://www.youtube.com/embed/${video.id}`}
+                    title={`Rusty Cage — ${video.title}`}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                  />
+                </div>
+                <figcaption>{video.title}</figcaption>
+              </figure>
+            ))}
           </div>
         </div>
         <div className="reels">
