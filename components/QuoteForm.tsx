@@ -13,7 +13,7 @@ export function QuoteForm() {
   return (
     <form
       className="form"
-      action="https://formsubmit.co/rustycagetrio@gmail.com"
+      action="https://formsubmit.co/a397a0862c9f140d8150305a390d086f"
       method="POST"
     >
       <input type="hidden" name="_next" value={nextUrl} />
